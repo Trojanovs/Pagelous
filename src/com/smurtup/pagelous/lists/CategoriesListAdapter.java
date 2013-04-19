@@ -1,7 +1,9 @@
-package com.smurtup.pagelous;
+package com.smurtup.pagelous.lists;
 
 import java.util.List;
 
+import com.smurtup.pagelous.R;
+import com.smurtup.pagelous.R.id;
 import com.smurtup.pagelous.imageCache.DrawableManager;
 import com.smurtup.pagelous.models.Category;
 

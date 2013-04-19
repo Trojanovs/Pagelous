@@ -1,4 +1,4 @@
-package com.smurtup.pagelous;
+package com.smurtup.pagelous.lists;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,6 +6,8 @@ import java.util.List;
 import android.os.Bundle;
 import android.view.View;
 import com.actionbarsherlock.app.SherlockListFragment;
+import com.smurtup.pagelous.R;
+import com.smurtup.pagelous.R.layout;
 import com.smurtup.pagelous.models.Category;
 
 public class CategoriesListFragment extends SherlockListFragment {

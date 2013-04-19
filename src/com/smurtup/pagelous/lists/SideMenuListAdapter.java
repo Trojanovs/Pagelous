@@ -1,6 +1,9 @@
-package com.smurtup.pagelous;
+package com.smurtup.pagelous.lists;
 
 import java.util.List;
+
+import com.smurtup.pagelous.R;
+import com.smurtup.pagelous.R.id;
 
 import android.content.Context;
 import android.graphics.Color;

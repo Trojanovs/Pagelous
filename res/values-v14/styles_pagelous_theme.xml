@@ -28,9 +28,7 @@
         <item name="android:actionBarStyle">@style/ActionBar.Solid.Pagelous_theme</item>
         <item name="android:actionModeBackground">@drawable/cab_background_top_pagelous_theme</item>
         <item name="android:actionModeSplitBackground">@drawable/cab_background_bottom_pagelous_theme</item>
-        <item name="android:actionModeCloseButtonStyle">@style/ActionButton.CloseMode.Pagelous_theme</item>
-        
-        
+        <item name="android:actionModeCloseButtonStyle">@style/ActionButton.CloseMode.Pagelous_theme</item>       
     </style>
 
     <style name="ActionBar.Solid.Pagelous_theme" parent="@style/Widget.Sherlock.Light.ActionBar.Solid">

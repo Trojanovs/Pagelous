@@ -1,19 +1,15 @@
-package com.smurtup.pagelous;
+package com.smurtup.pagelous.lists;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
-import android.graphics.drawable.Drawable;
-import android.graphics.drawable.GradientDrawable;
-import android.graphics.drawable.GradientDrawable.Orientation;
-import android.graphics.drawable.PaintDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ListView;
 
 import com.actionbarsherlock.app.SherlockListFragment;
+import com.smurtup.pagelous.R;
 
 public class SideMenuListFragment extends SherlockListFragment {
 

@@ -3,105 +3,85 @@ package com.smurtup.pagelous;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import net.simonvt.menudrawer.MenuDrawer;
 import android.app.Dialog;
 import android.content.Context;
-import android.graphics.drawable.ColorDrawable;
 import android.location.Location;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ListView;
-import android.widget.ProgressBar;
+import android.widget.ArrayAdapter;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.TextView;
-
 import com.actionbarsherlock.app.ActionBar;
+import com.actionbarsherlock.app.ActionBar.OnNavigationListener;
 import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.actionbarsherlock.view.Menu;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
-import com.google.android.gms.internal.ac;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
-import com.smurtup.pagelous.imageCache.DrawableManager;
+import com.smurtup.pagelous.lists.CategoriesListFragment;
+import com.smurtup.pagelous.lists.SideMenuListFragment;
 import com.smurtup.pagelous.models.Category;
+import com.smurtup.pagelous.references.CategoryType;
 
-public class CategoryActivity extends SherlockFragmentActivity implements OnItemClickListener  {
+public class CategoryActivity extends SherlockFragmentActivity implements OnItemClickListener, OnNavigationListener  {
     private static final String STATE_MENUDRAWER = MainActivity.class.getName() + ".menuDrawer";
 	
 	private MenuDrawer mMenuDrawer;
 
 	private JSONObject jsonObject;
 	private final Handler myHandler = new Handler();
-	private List<Category> categoryList = new ArrayList<Category>();;	
+	private List<Category> categoryList = new ArrayList<Category>();	
 	private CategoriesListFragment list;
 
 	private GoogleMap googleMap;
 
 	private Location myLocation;
+	private CategoryType categoryType;
 
 	private LocationManager locationManager;
+	
+	private String url = "http://www.pagelous.com/api/";
+
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {	
 		super.onCreate(savedInstanceState);
 		int categoryKey = getIntent().getExtras().getInt("category");
-		String url = null;
-		switch (categoryKey) {
-		case 1:
-			url = "http://www.pagelous.com/api/eat";
-			break;
-		case 2:
-			url = "http://www.pagelous.com/api/shop";
-			break;
-		case 3:
-			url = "http://www.pagelous.com/api/action";
-			break;
-		case 4:
-			url = "http://www.pagelous.com/api/sport";
-			break;
-		case 5:
-			url = "http://www.pagelous.com/api/feel";
-			break;
-		case 6:
-			url = "http://www.pagelous.com/api/travel";
-			break;
-		case 7:
-			url = "http://www.pagelous.com/api/business";
-			break;
-		case 8:
-			url = "http://www.pagelous.com/api/society";
-			break;
-		case 9:
-			url = "http://www.pagelous.com/api/lifestyle";
-			break;
-		default:
-			break;
-		}
+		categoryType = CategoryType.getByNum(categoryKey);
+		
 		
 		mMenuDrawer = MenuDrawer.attach(this, MenuDrawer.MENU_DRAG_WINDOW);
 		mMenuDrawer.setContentView(R.layout.category);
-		mMenuDrawer.setMenuView(R.layout.side_menu_list);
+		mMenuDrawer.setMenuView(R.layout.side_menu_list);	
 		
-		if (url != null)
-			getCategoryItemsFromUrl(url);		
 		SideMenuListFragment menu = (SideMenuListFragment)getSupportFragmentManager().findFragmentById(R.id.f_menu);
 		menu.getListView().setOnItemClickListener(this);
-		ActionBar actionBar = getSupportActionBar();
-		actionBar.setTitle(url);
-		actionBar.setDisplayHomeAsUpEnabled(true);
-		list = (CategoriesListFragment)getSupportFragmentManager().findFragmentById(R.id.f_categories);	
 		
+		getCategoryItemsFromUrl(url + categoryType.getType());		
+		
+		
+		ActionBar actionBar = getSupportActionBar();
+		actionBar.setTitle(categoryType.getCode());
+		actionBar.setDisplayHomeAsUpEnabled(true);
+		actionBar.setDisplayShowTitleEnabled(false);
+
+		list = (CategoriesListFragment)getSupportFragmentManager().findFragmentById(R.id.f_categories);
+		
+		Context context = actionBar.getThemedContext();
+		ArrayAdapter<String> listAdapter = new ArrayAdapter<String>(context, R.layout.spinner_item, CategoryType.getList());
+	    listAdapter.setDropDownViewResource(R.layout.sherlock_spinner_dropdown_item);
+        actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_LIST);
+        actionBar.setListNavigationCallbacks(listAdapter, this);
+        actionBar.setSelectedNavigationItem(categoryKey-1);
 		initMap();
 	}
 	
@@ -172,6 +152,7 @@ public class CategoryActivity extends SherlockFragmentActivity implements OnItem
             		JSONParser jsonParser = new JSONParser();
             		jsonObject = jsonParser.getJSONFromUrl(url);
         			JSONArray dataArray = jsonObject.getJSONArray("pages");
+        			categoryList.clear();
         			for (int i = 0; i < dataArray.length(); i++) {
         				categoryList.add(new Category((JSONObject) dataArray.get(i))) ;    				
         			}                		
@@ -187,6 +168,7 @@ public class CategoryActivity extends SherlockFragmentActivity implements OnItem
     final Runnable updateRunnable = new Runnable() {
         public void run() {
     		list.setCategoryList(categoryList);
+    		list.setListShown(true);
         }
     };
     
@@ -204,7 +186,6 @@ public class CategoryActivity extends SherlockFragmentActivity implements OnItem
             mMenuDrawer.closeMenu();
             return;
         }
-		
 		super.onBackPressed();
 	}
 	
@@ -239,6 +220,14 @@ public class CategoryActivity extends SherlockFragmentActivity implements OnItem
 	@Override
 	protected void onDestroy() {
 	    super.onDestroy();
+	}
+
+
+	@Override
+	public boolean onNavigationItemSelected(int itemPosition, long itemId) {
+		list.setListShown(false);
+		getCategoryItemsFromUrl(url + CategoryType.getByNum(itemPosition+1).getCode());
+		return false;
 	}
 	
 }

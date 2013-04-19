@@ -24,6 +24,8 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.smurtup.pagelous.lists.SideMenuListFragment;
+import com.smurtup.pagelous.references.CategoryType;
 
 public class MainActivity extends SherlockFragmentActivity implements OnItemClickListener, LocationListener {
 
@@ -69,7 +71,7 @@ public class MainActivity extends SherlockFragmentActivity implements OnItemClic
 			@Override
 			public void onClick(View v) {
 				Intent myIntent = new Intent(v.getContext(), CategoryActivity.class);
-				myIntent.putExtra("category", 1);
+				myIntent.putExtra("category", CategoryType.EAT.getCategoryNum());
                 startActivityForResult(myIntent, 0);
 				
 			}
@@ -80,7 +82,7 @@ public class MainActivity extends SherlockFragmentActivity implements OnItemClic
 			@Override
 			public void onClick(View v) {
 				Intent myIntent = new Intent(v.getContext(), CategoryActivity.class);
-				myIntent.putExtra("category", 2);
+				myIntent.putExtra("category", CategoryType.SHOP.getCategoryNum());
                 startActivityForResult(myIntent, 0);
 				
 			}
@@ -91,7 +93,7 @@ public class MainActivity extends SherlockFragmentActivity implements OnItemClic
 			@Override
 			public void onClick(View v) {
 				Intent myIntent = new Intent(v.getContext(), CategoryActivity.class);
-				myIntent.putExtra("category", 3);
+				myIntent.putExtra("category", CategoryType.ACTION.getCategoryNum());
                 startActivityForResult(myIntent, 0);
 				
 			}
@@ -102,7 +104,7 @@ public class MainActivity extends SherlockFragmentActivity implements OnItemClic
 			@Override
 			public void onClick(View v) {
 				Intent myIntent = new Intent(v.getContext(), CategoryActivity.class);
-				myIntent.putExtra("category", 4);
+				myIntent.putExtra("category", CategoryType.SPORT.getCategoryNum());
                 startActivityForResult(myIntent, 0);
 				
 			}
@@ -113,7 +115,7 @@ public class MainActivity extends SherlockFragmentActivity implements OnItemClic
 			@Override
 			public void onClick(View v) {
 				Intent myIntent = new Intent(v.getContext(), CategoryActivity.class);
-				myIntent.putExtra("category", 5);
+				myIntent.putExtra("category", CategoryType.FEEL.getCategoryNum());
                 startActivityForResult(myIntent, 0);
 				
 			}
@@ -124,7 +126,7 @@ public class MainActivity extends SherlockFragmentActivity implements OnItemClic
 			@Override
 			public void onClick(View v) {
 				Intent myIntent = new Intent(v.getContext(), CategoryActivity.class);
-				myIntent.putExtra("category", 6);
+				myIntent.putExtra("category", CategoryType.TRAVEL.getCategoryNum());
                 startActivityForResult(myIntent, 0);
 				
 			}
@@ -135,7 +137,7 @@ public class MainActivity extends SherlockFragmentActivity implements OnItemClic
 			@Override
 			public void onClick(View v) {
 				Intent myIntent = new Intent(v.getContext(), CategoryActivity.class);
-				myIntent.putExtra("category", 7);
+				myIntent.putExtra("category", CategoryType.BUSINESS.getCategoryNum());
                 startActivityForResult(myIntent, 0);
 				
 			}
@@ -146,7 +148,7 @@ public class MainActivity extends SherlockFragmentActivity implements OnItemClic
 			@Override
 			public void onClick(View v) {
 				Intent myIntent = new Intent(v.getContext(), CategoryActivity.class);
-				myIntent.putExtra("category", 8);
+				myIntent.putExtra("category", CategoryType.SOCIETY.getCategoryNum());
                 startActivityForResult(myIntent, 0);
 				
 			}
@@ -157,7 +159,7 @@ public class MainActivity extends SherlockFragmentActivity implements OnItemClic
 			@Override
 			public void onClick(View v) {
 				Intent myIntent = new Intent(v.getContext(), CategoryActivity.class);
-				myIntent.putExtra("category", 9);
+				myIntent.putExtra("category", CategoryType.LIFESTYLE.getCategoryNum());
                 startActivityForResult(myIntent, 0);
 				
 			}
