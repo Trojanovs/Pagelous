@@ -1,0 +1,310 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    tools:context=".MainActivity" >
+
+    <fragment
+        android:id="@+id/map"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        class="com.google.android.gms.maps.SupportMapFragment" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <FrameLayout
+            android:id="@+id/mapPriview"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_weight="0.25"
+            android:clickable="false"
+            android:minHeight="100dp" >
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/MainMenuLayout"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_gravity="center"
+            android:layout_weight="0.75"
+            android:clickable="false"
+            android:paddingLeft="0dp"
+            android:paddingRight="0dp" >
+
+            <TableLayout
+                android:id="@+id/MainMenuTableLayout"
+                android:layout_width="310dp"
+                android:layout_height="300dp"
+                android:layout_gravity="center"
+                android:baselineAligned="false"
+                android:clickable="true"
+                android:orientation="horizontal" >
+
+                <TableRow
+                    android:id="@+id/TableRow01"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_weight="0.33"
+                    android:orientation="horizontal"
+                    android:paddingBottom="5dp"
+                    android:paddingTop="5dp" >
+
+                    <FrameLayout
+                        android:id="@+id/FrameLayout01"
+                        style="@style/MainMenu.ButtonStyle.Pagelous_theme"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:contentDescription="@string/eat"
+                        android:paddingBottom="10dp"
+                        android:tag="eat" >
+
+                        <ImageView
+                            android:id="@+id/ImageView01"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:contentDescription="@string/eat"
+                            android:src="@drawable/eat" />
+
+                        <TextView
+                            android:id="@+id/TextView01"
+                            style="@style/MainMenu.ButtonTextStyle.Pagelous_theme"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="bottom|center_horizontal"
+                            android:text="@string/eat" />
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:id="@+id/FrameLayout02"
+                        style="@style/MainMenu.ButtonStyle.Pagelous_theme"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:paddingBottom="10dp" >
+
+                        <ImageView
+                            android:id="@+id/ImageView02"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:contentDescription="@string/shop"
+                            android:src="@drawable/shop" />
+
+                        <TextView
+                            android:id="@+id/TextView02"
+                            style="@style/MainMenu.ButtonTextStyle.Pagelous_theme"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="bottom|center_horizontal"
+                            android:text="@string/shop" />
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:id="@+id/FrameLayout03"
+                        style="@style/MainMenu.ButtonStyle.Pagelous_theme"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:paddingBottom="10dp" >
+
+                        <ImageView
+                            android:id="@+id/ImageView03"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:contentDescription="@string/action"
+                            android:src="@drawable/action" />
+
+                        <TextView
+                            android:id="@+id/TextView03"
+                            style="@style/MainMenu.ButtonTextStyle.Pagelous_theme"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="bottom|center_horizontal"
+                            android:text="@string/action" />
+                    </FrameLayout>
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/TableRow02"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_weight="0.33"
+                    android:orientation="horizontal"
+                    android:paddingBottom="5dp"
+                    android:paddingTop="5dp" >
+
+                    <FrameLayout
+                        android:id="@+id/FrameLayout06"
+                        style="@style/MainMenu.ButtonStyle.Pagelous_theme"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:paddingBottom="10dp" >
+
+                        <ImageView
+                            android:id="@+id/ImageView04"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:contentDescription="@string/sport"
+                            android:src="@drawable/sport" />
+
+                        <TextView
+                            android:id="@+id/TextView05"
+                            style="@style/MainMenu.ButtonTextStyle.Pagelous_theme"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="bottom|center_horizontal"
+                            android:text="@string/sport" />
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:id="@+id/FrameLayout05"
+                        style="@style/MainMenu.ButtonStyle.Pagelous_theme"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:paddingBottom="10dp" >
+
+                        <ImageView
+                            android:id="@+id/ImageView05"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:contentDescription="@string/feel"
+                            android:src="@drawable/feel" />
+
+                        <TextView
+                            android:id="@+id/TextView04"
+                            style="@style/MainMenu.ButtonTextStyle.Pagelous_theme"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="bottom|center_horizontal"
+                            android:text="@string/feel" />
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:id="@+id/FrameLayout04"
+                        style="@style/MainMenu.ButtonStyle.Pagelous_theme"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:paddingBottom="10dp" >
+
+                        <ImageView
+                            android:id="@+id/ImageView06"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:contentDescription="@string/travel"
+                            android:src="@drawable/travel" />
+
+                        <TextView
+                            android:id="@+id/TextView06"
+                            style="@style/MainMenu.ButtonTextStyle.Pagelous_theme"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="bottom|center_horizontal"
+                            android:text="@string/travel" />
+                    </FrameLayout>
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/TableRow03"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_weight="0.33"
+                    android:orientation="horizontal"
+                    android:paddingBottom="5dp"
+                    android:paddingTop="5dp" >
+
+                    <FrameLayout
+                        android:id="@+id/FrameLayout09"
+                        style="@style/MainMenu.ButtonStyle.Pagelous_theme"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:paddingBottom="10dp" >
+
+                        <ImageView
+                            android:id="@+id/ImageView07"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:contentDescription="@string/business"
+                            android:src="@drawable/business" />
+
+                        <TextView
+                            android:id="@+id/TextView08"
+                            style="@style/MainMenu.ButtonTextStyle.Pagelous_theme"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="bottom|center_horizontal"
+                            android:text="@string/business" />
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:id="@+id/FrameLayout08"
+                        style="@style/MainMenu.ButtonStyle.Pagelous_theme"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:paddingBottom="10dp" >
+
+                        <ImageView
+                            android:id="@+id/ImageView08"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:contentDescription="@string/society"
+                            android:src="@drawable/society" />
+
+                        <TextView
+                            android:id="@+id/TextView07"
+                            style="@style/MainMenu.ButtonTextStyle.Pagelous_theme"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="bottom|center_horizontal"
+                            android:text="@string/society" />
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:id="@+id/FrameLayout07"
+                        style="@style/MainMenu.ButtonStyle.Pagelous_theme"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:paddingBottom="10dp" >
+
+                        <ImageView
+                            android:id="@+id/ImageView09"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:contentDescription="@string/lifestyle"
+                            android:src="@drawable/lifestyle" />
+
+                        <TextView
+                            android:id="@+id/TextView09"
+                            style="@style/MainMenu.ButtonTextStyle.Pagelous_theme"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="bottom|center_horizontal"
+                            android:text="@string/lifestyle" />
+                    </FrameLayout>
+                </TableRow>
+
+            </TableLayout>
+
+        </FrameLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

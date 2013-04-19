@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/LinearLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_weight="0.25" >
+
+        <fragment
+            android:id="@+id/map"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            class="com.google.android.gms.maps.SupportMapFragment" />
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_gravity="center"
+        android:layout_weight="0.75"
+        android:background="#d9d9d9"
+        android:paddingBottom="25dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="10dp" >
+        
+	    <fragment
+	        android:id="@+id/f_categories"
+	        android:name="com.smurtup.pagelous.CategoriesListFragment"
+	        android:layout_width="match_parent"
+	        android:layout_height="match_parent" />
+
+    </FrameLayout>
+
+</LinearLayout>

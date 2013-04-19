@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Pagelous</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="eat">Eat</string>
+    <string name="shop">Shop</string>
+    <string name="action">Action</string>
+    <string name="sport">Sport</string>
+    <string name="feel">Feel good</string>
+    <string name="travel">Travel</string>
+    <string name="business">Business</string>
+    <string name="society">Society</string>
+    <string name="lifestyle">Lifestyle</string>
+
+</resources>
