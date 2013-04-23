@@ -13,6 +13,7 @@ public class Category {
 	private String categoryName;
 	private String categoryType;
 	private String iconURL;
+	private String county;
 	private Drawable icon;
 	
 	
@@ -22,6 +23,7 @@ public class Category {
 		this.categoryName = jsonObject.getJSONObject("category").getString("name");
 		this.categoryType = jsonObject.getJSONObject("category").getString("type");
 		this.iconURL = jsonObject.getString("icon");
+		this.county = jsonObject.getJSONObject("location").getJSONObject("country").getString("name");
 		DrawableManager drawableManager = new DrawableManager();
 		setIcon(drawableManager.fetchDrawable(getIconURL()));
 	}
@@ -60,6 +62,14 @@ public class Category {
 
 	public void setIconURL(String iconURL) {
 		this.iconURL = iconURL;
+	}
+
+	public String getCounty() {
+		return county;
+	}
+
+	public void setCounty(String county) {
+		this.county = county;
 	}
 
 	public Drawable getIcon() {

@@ -66,7 +66,7 @@ public class CategoryActivity extends SherlockFragmentActivity implements OnItem
 		SideMenuListFragment menu = (SideMenuListFragment)getSupportFragmentManager().findFragmentById(R.id.f_menu);
 		menu.getListView().setOnItemClickListener(this);
 		
-		getCategoryItemsFromUrl(url + categoryType.getType());		
+	
 		
 		
 		ActionBar actionBar = getSupportActionBar();
@@ -149,6 +149,7 @@ public class CategoryActivity extends SherlockFragmentActivity implements OnItem
 			@Override
             public void run() {
                 try {
+                	System.out.println("gogogo");
             		JSONParser jsonParser = new JSONParser();
             		jsonObject = jsonParser.getJSONFromUrl(url);
         			JSONArray dataArray = jsonObject.getJSONArray("pages");
@@ -226,7 +227,11 @@ public class CategoryActivity extends SherlockFragmentActivity implements OnItem
 	@Override
 	public boolean onNavigationItemSelected(int itemPosition, long itemId) {
 		list.setListShown(false);
-		getCategoryItemsFromUrl(url + CategoryType.getByNum(itemPosition+1).getCode());
+        if(myLocation!=null){
+    		getCategoryItemsFromUrl(url + CategoryType.getByNum(itemPosition+1).getCode()+"?radius=500&coordinates="+myLocation.getLatitude()+","+myLocation.getLongitude());	
+        }	
+        else
+        	getCategoryItemsFromUrl(url + CategoryType.getByNum(itemPosition+1).getCode());
 		return false;
 	}
 	
