@@ -18,6 +18,7 @@ public class CategoriesListFragment extends SherlockListFragment {
 	public void setCategoryList(List<Category> categoryList) {
 		this.categoryList = categoryList;
 		listAdapter = new CategoriesListAdapter(getActivity() , R.layout.category_list_item , categoryList);
+		getListView().setDividerHeight(0);
 		setListAdapter(listAdapter);
 	}
 	

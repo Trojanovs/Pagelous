@@ -2,6 +2,7 @@ package com.smurtup.pagelous.lists;
 
 import java.util.List;
 
+import com.google.android.gms.internal.m;
 import com.smurtup.pagelous.R;
 import com.smurtup.pagelous.R.id;
 import com.smurtup.pagelous.imageCache.DrawableManager;
@@ -41,12 +42,13 @@ public class CategoriesListAdapter extends ArrayAdapter<Category> {
         TextView name = (TextView) mView.findViewById(R.id.category_item_name);
         TextView type = (TextView) mView.findViewById(R.id.category_item_type);
         ImageView imageView = (ImageView) mView.findViewById(R.id.category_item_logo);
-        DrawableManager drawableManager = new DrawableManager();
+        TextView country = (TextView) mView.findViewById(R.id.category_item_country);
         if(items.get(position) != null )
         {        	
         	name.setText(items.get(position).getName());
         	type.setText(items.get(position).getCategoryName());
-			imageView.setImageDrawable(items.get(position).getIcon());;
+			imageView.setImageDrawable(items.get(position).getIcon());
+			country.setText(items.get(position).getCounty());
         }
 
         return mView;
