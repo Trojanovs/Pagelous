@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Pagelous.iml" filepath="$PROJECT_DIR$/Pagelous.iml" />
+      <module fileurl="file://D:/Android/Libs/android-menudrawer-master/android-menudrawer-master.iml" filepath="D:/Android/Libs/android-menudrawer-master/android-menudrawer-master.iml" />
+      <module fileurl="file://D:/Android/android-sdk/extras/google/google_play_services/libproject/google-play-services_lib/google-play-services_lib.iml" filepath="D:/Android/android-sdk/extras/google/google_play_services/libproject/google-play-services_lib/google-play-services_lib.iml" />
+      <module fileurl="file://D:/Android/Libs/JakeWharton-ActionBarSherlock-e5c2d1c/library/library.iml" filepath="D:/Android/Libs/JakeWharton-ActionBarSherlock-e5c2d1c/library/library.iml" />
+    </modules>
+  </component>
+</project>
+
